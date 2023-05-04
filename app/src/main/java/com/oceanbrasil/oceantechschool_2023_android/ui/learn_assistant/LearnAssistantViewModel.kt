@@ -5,9 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class LearnAssistantViewModel : ViewModel() {
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is Learn Assistant Fragment"
+    private val _answer = MutableLiveData<String>().apply {
+        value = "Test answer"
     }
-    val text: LiveData<String> = _text
+    val answer: LiveData<String> = _answer
+
+    fun ask(theme: String, question: String) {
+        _answer.value = "Realizar uma pergunta para o tema escolhido: $theme; $question"
+    }
 }
