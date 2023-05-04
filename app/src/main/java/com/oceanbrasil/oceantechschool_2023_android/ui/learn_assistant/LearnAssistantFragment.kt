@@ -18,12 +18,14 @@ class LearnAssistantFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var viewModel: LearnAssistantViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel =
+        viewModel =
             ViewModelProvider(this).get(LearnAssistantViewModel::class.java)
 
         _binding = FragmentLearnAssistantBinding.inflate(inflater, container, false)
@@ -33,10 +35,10 @@ class LearnAssistantFragment : Fragment() {
         loadThemes()
 
         // Quando clicar no botão ask, realiza a pergunta no ViewModel
-        prepareAsk(viewModel)
+        prepareToAsk()
 
         // Qualquer mudança na variável answer do ViewModel, executa esse código
-        prepareAnswer(viewModel)
+        prepareAnswerUpdate()
 
         return root
     }
@@ -63,7 +65,7 @@ class LearnAssistantFragment : Fragment() {
         binding.spinner.adapter = adapter
     }
 
-    private fun prepareAsk(viewModel: LearnAssistantViewModel) {
+    private fun prepareToAsk() {
         binding.ask.setOnClickListener {
             // Pega o tema selecionado no spinner (dropdown)
             val theme = binding.spinner.selectedItem?.toString() ?: ""
@@ -82,7 +84,7 @@ class LearnAssistantFragment : Fragment() {
         }
     }
 
-    private fun prepareAnswer(viewModel: LearnAssistantViewModel) {
+    private fun prepareAnswerUpdate() {
         viewModel.answer.observe(viewLifecycleOwner) {
             // Atualiza o texto da resposta na tela
             binding.answer.text = it
