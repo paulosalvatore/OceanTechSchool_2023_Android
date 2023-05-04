@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.oceanbrasil.oceantechschool_2023_android.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_learn_assistant"
+        android:name="com.oceanbrasil.oceantechschool_2023_android.ui.learn_assistant.LearnAssistantFragment"
+        android:label="@string/menu_learn_assistant"
+        tools:layout="@layout/fragment_learn_assistant" />
 
     <fragment
         android:id="@+id/nav_slideshow"
