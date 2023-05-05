@@ -32,14 +32,7 @@ object OpenAiRepository {
     }
 
     // Create a function to make a request to the service
-    fun postCompletion(prompt: String, callback: CompletionCallback) {
-        // Create a CompletionRequest object
-        val completionRequest = CompletionRequest(
-            "text-davinci-003",
-            prompt,
-            32,
-        )
-
+    fun postCompletion(completionRequest: CompletionRequest, callback: CompletionCallback) {
         // Make a request to the service
         // Use the callback to return the answer
         val call = service.postCompletion(completionRequest)
