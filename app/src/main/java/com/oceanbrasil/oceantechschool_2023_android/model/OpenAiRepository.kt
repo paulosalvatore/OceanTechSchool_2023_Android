@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object OpenAiRepository {
-    private const val OPENAI_API_KEY = "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"
+    private const val OPENAI_API_KEY = "YOUR_TOKEN"
 
     private val service: CompletionService
 
@@ -37,6 +37,7 @@ object OpenAiRepository {
         val completionRequest = CompletionRequest(
             "text-davinci-003",
             prompt,
+            32,
         )
 
         // Make a request to the service
